@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas Totales</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="Graficos.css">
+
+</head>
+
+<body>
+    <header class="container">
+        <img src="https://digy.com.mx/wp-content/uploads/2021/02/logo1sinfondo_Mesa-de-trabajo-1-1024x264.png" alt="Imagen del producto">
+      
+      </header>
+    <div class="container">
+        <h1 class="text-center my-4"> Ventas</h1>
+        
+        <!-- Formulario para calcular ventas por usuario -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <form id="formVentasUsuario">
+                    <div class="form-group">
+                        <label for="selectTipoBusqueda">Seleccionar tipo de búsqueda:</label>
+                        <select class="form-control" id="selectTipoBusqueda">
+                            <option value="zona">Zona</option>
+                            <option value="usuario">Usuario</option>
+                            <option value="telefono"> Número Telefónico</option>
+                            <option value="cliente">Nombre de Cliente</option>
+                            <option value="fecha"> Fecha</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="divZona">
+                        <label for="inputZona">Zona:</label>
+                        <input type="text" class="form-control" id="inputZona" placeholder="Zona">
+                    </div>
+                    <div class="form-group" id="divUsuario">
+                        <label for="inputUsuario">Usuario:</label>
+                        <input type="text" class="form-control" id="inputUsuario" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="form-group" id="divTelefono">
+                        <label for="inputTelefono">Número Telefónico (10 dígitos numéricos):</label>
+                        <input type="text" class="form-control" id="inputTelefono" placeholder="Número telefónico" maxlength="10" pattern="\d{10}" title="Debe contener exactamente 10 dígitos numéricos">
+                    </div>
+                    <div class="form-group" id="divCliente">
+                        <label for="inputCliente">Nombre de Cliente:</label>
+                        <input type="text" class="form-control" id="inputCliente" placeholder="Nombre del cliente">
+                    </div>
+                    <div class="form-group" id="divFecha">
+                        <label for="inputFecha">Fecha:</label>
+                        <input type="date" class="form-control" id="inputFecha">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnCalcularUsuario">Buscar Ventas</button>
+                </form>
+                
+                
+        
+        <!-- Botón para calcular ventas generales -->
+        <div class="card">
+        </br>
+
+            <div class="card-header">
+            Ventas Generales
+            </div>
+            <div class="card-body">
+                <button class="btn btn-success" id="btnCalcularGenerales">Calcular Ventas Generales</button>
+            </div>
+        </div>
+
+        <!-- Resultado de las operaciones (se mostrará aquí dinámicamente) -->
+        <div id="resultado" class="mt-4"></div>
+    </div>
+
+    <!-- jQuery (necesario para Bootstrap JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="Graficos.js"></script>
+</body>
+</html>
+
+    

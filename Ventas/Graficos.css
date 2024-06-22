@@ -1,0 +1,36 @@
+/* css/styles.css */
+title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilo personalizado */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+ /* Encabezado */
+ header {
+  
+    padding: 30px;
+    text-align: center;
+  }
+  
+  header img {
+    width: 20em; /* Ajusta el ancho de la imagen según sea necesario */
+    max-width: 100%; /* La imagen se reduce en pantallas más pequeñas */
+  }
+  
+  /* Opciones de centrado responsivo (elige una): */
+  
+  /* Opción 1: Usar text-align: center (para imágenes más pequeñas) */
+  .header-container { /* Se agregó una clase de contenedor */
+    display: inline-block;
+    max-width: 100%;
+  }
