@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="Logis.css"> </head>
+<body>
+  <header>
+    <img src="https://digy.com.mx/wp-content/uploads/2021/02/logo1sinfondo_Mesa-de-trabajo-1-1024x264.png" alt="Imagen del producto">
+    <h1>Bienvenido</h1>
+  </header>
+
+  <section class="Login container d-flex justify-content-center align-items-center">
+    <form id="validate.datos" action="#" method="post" class="row g-3">
+
+      <div class="col-md-12">
+        <label for="usuario" class="form-label">Usuario:</label>
+        <input type="text" class="form-control" id="usuario" name="usuario" required>
+      </div>
+
+      <div class="col-md-12">
+        <label for="contrasena" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+      </div> 
+
+      <div class="col-md-12 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <button id= "json_post" type="button" class="btn btn-primary">xxx</button>
+        <p id="mensaje"></p>
+        <a href="/index/index.html" class="link-secondary">prueba</a> </div>
+    </form>
+  </section>
+<script src="petciones.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="scripsLogin.js"></script> </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</html>

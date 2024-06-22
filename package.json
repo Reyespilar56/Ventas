@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "expres": "^0.0.5"
+  },
+  "name": "ventas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon Preregistro.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

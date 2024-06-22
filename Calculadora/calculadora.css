@@ -1,0 +1,62 @@
+/* Estilos personalizados para la calculadora de megas */
+
+body {
+   
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    background-color: #eceeef;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.input-group-text {
+    min-width: 300px;
+    text-align: left;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.result-section {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.result-section h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.result-section p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/* Media queries para responsividad */
+
+@media (max-width: 768px) {
+    .calculator {
+        padding: 20px;
+    }
+    
+    .input-group-text {
+        min-width: auto;
+    }
+}

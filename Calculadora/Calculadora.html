@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Megas para Paquetes de Internet</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    <div class="container">
+    </br>
+</br>
+</br>
+</br>    </br>    </br>
+        <header class="container text-center">
+            <img src="https://digy.com.mx/wp-content/uploads/2021/02/logo1sinfondo_Mesa-de-trabajo-1-1024x264.png" alt="Logo de la empresa" class="img-fluid">
+        </header>
+        <div class="calculator">
+    
+            <h2 class="text-center mt-3 mb-4">Calculadora de Megas </h2>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Número de dispositivos</span>
+                </div>
+                <input type="number" id="devices" class="form-control" min="1" value="1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Horas de juego multijugador/día</span>
+                </div>
+                <input type="number" id="multiplayer-hours" class="form-control" min="0" value="0">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Descargas y actualizacionesa dispositivo /mes</span>
+                </div>
+                <input type="number" id="downloads-count" class="form-control" min="0" value="0">
+            </div>
+            <button onclick="calculateDataUsage()" class="btn btn-primary btn-block">Calcular Consumo</button>
+            <div id="result" class="result-section mt-4">
+                <h3 class="text-center">Consumo estimado de datos:</h3>
+                <p id="data-usage" class="text-center">-</p>
+                <p id="recommendation" class="text-center">-</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir Bootstrap JS y script personalizado -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="calculadora.js"></script>
+</body>
+</html>

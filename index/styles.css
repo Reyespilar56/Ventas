@@ -1,0 +1,96 @@
+/* Estilos generales */
+fond
+
+
+body {
+    font-family: sans-serif;
+    padding: 10; /* Elimina el relleno predeterminado del cuerpo */
+  }
+  
+  /* Encabezado */
+  header {
+    background-color:#eceeef;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  header img {
+    width: 20em; /* Ajusta el ancho de la imagen según sea necesario */
+    max-width: 100%; /* La imagen se reduce en pantallas más pequeñas */
+  }
+  
+  /* Opciones de centrado responsivo (elige una): */
+  
+  /* Opción 1: Usar text-align: center (para imágenes más pequeñas) */
+  .header-container { /* Se agregó una clase de contenedor */
+    display: inline-block;
+    max-width: 100%;
+  }
+  
+  header img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  /* Opción 2: Usar margin: 0 auto (para cualquier tamaño de imagen) */
+  /* Descomenta lo siguiente si prefieres este método de centrado */
+  /*
+  header img {
+    display: block;
+    margin: 0 auto;
+    max-ancho: 100%;
+  }
+  */
+  
+  /* Estilos del formulario */
+  .formulario {
+    padding: 15px;
+   
+    border: 1px solid #ccc;
+    margin: 1%;
+    max-width: 600px; /* Establece un ancho máximo para la capacidad de respuesta */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .formulario {
+      width: 95%; /* Ajusta el ancho del formulario para pantallas más pequeñas */
+    }
+  
+    input,
+    select {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formulario {
+      width: 100%; /* El formulario ocupa todo el ancho en dispositivos móviles */
+    }
+  }
+  
+
+
+
