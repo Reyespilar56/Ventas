@@ -8,14 +8,11 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tu archivo CSS personalizado -->
     <link rel="stylesheet" href="Graficos.css">
-
 </head>
-
 <body>
     <header class="container">
         <img src="https://digy.com.mx/wp-content/uploads/2021/02/logo1sinfondo_Mesa-de-trabajo-1-1024x264.png" alt="Imagen del producto">
-      
-      </header>
+    </header>
     <div class="container">
         <h1 class="text-center my-4"> Ventas</h1>
         
@@ -28,58 +25,123 @@
                         <select class="form-control" id="selectTipoBusqueda">
                             <option value="zona">Zona</option>
                             <option value="usuario">Usuario</option>
-                            <option value="telefono"> Número Telefónico</option>
+                            <option value="telefono">Número Telefónico</option>
                             <option value="cliente">Nombre de Cliente</option>
-                            <option value="fecha"> Fecha</option>
+                            <option value="fecha">Fecha</option>
                         </select>
                     </div>
                     <div class="form-group" id="divZona">
                         <label for="inputZona">Zona:</label>
-                        <input type="text" class="form-control" id="inputZona" placeholder="Zona">
+                        <input type="text" class="form-control" id="Zona" placeholder="Zona">
                     </div>
                     <div class="form-group" id="divUsuario">
                         <label for="inputUsuario">Usuario:</label>
-                        <input type="text" class="form-control" id="inputUsuario" placeholder="Nombre de usuario">
+                        <input type="text" class="form-control" id="Usuario" placeholder="Nombre de usuario">
                     </div>
                     <div class="form-group" id="divTelefono">
                         <label for="inputTelefono">Número Telefónico (10 dígitos numéricos):</label>
-                        <input type="text" class="form-control" id="inputTelefono" placeholder="Número telefónico" maxlength="10" pattern="\d{10}" title="Debe contener exactamente 10 dígitos numéricos">
+                        <input type="text" class="form-control" id="Telefono" placeholder="Número telefónico" maxlength="10" pattern="\d{10}" title="Debe contener exactamente 10 dígitos numéricos">
                     </div>
                     <div class="form-group" id="divCliente">
                         <label for="inputCliente">Nombre de Cliente:</label>
-                        <input type="text" class="form-control" id="inputCliente" placeholder="Nombre del cliente">
+                        <input type="text" class="form-control" id="Cliente" placeholder="Nombre del cliente">
                     </div>
                     <div class="form-group" id="divFecha">
                         <label for="inputFecha">Fecha:</label>
-                        <input type="date" class="form-control" id="inputFecha">
+                        <input type="date" class="form-control" id="Fecha">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="btnCalcularUsuario">Buscar Ventas</button>
+                    <button type="submit" class="btn btn-primary" id="btnCalcularUsuario">Buscar Venta</button>
                 </form>
-                
-                
-        
+            </div>
+        </div>
+
         <!-- Botón para calcular ventas generales -->
         <div class="card">
-        </br>
-
-            <div class="card-header">
-            Ventas Generales
-            </div>
+            <div class="card-header">Ventas Generales</div>
             <div class="card-body">
                 <button class="btn btn-success" id="btnCalcularGenerales">Calcular Ventas Generales</button>
             </div>
         </div>
 
-        <!-- Resultado de las operaciones (se mostrará aquí dinámicamente) -->
+
+
+    </br>
+<div class="card">
+    
+    <div class="card-header">Resultados </div>
+    <div class="card-body">
+        <p id="mensaje"></p>  <!-- Resultado de las operaciones (se mostrará aquí dinámicamente) -->
         <div id="resultado" class="mt-4"></div>
-    </div>
+    
+    
+     
+</div>
+</div>
+<script src="PeticionesV.js"></script>
 
     <!-- jQuery (necesario para Bootstrap JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <script src="Graficos.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script>
+      /*  var buttonGenerales = document.getElementById('btnCalcularGenerales');
+        var buttonUsuario = document.getElementById('btnCalcularUsuario');
+        var mensaje = document.getElementById('mensaje');
+
+        buttonGenerales.addEventListener('click', function() {
+            procesarFormulario('generales');
+        });
+
+        buttonUsuario.addEventListener('click', function(event) {
+            event.preventDefault();
+            var filtroTipo = document.getElementById('selectTipoBusqueda').value;
+            procesarFormulario(filtroTipo);
+        });
+
+        function procesarFormulario(filtroTipo) {
+            console.log("Juevesss",filtroTipo)
+            console.log("botón funcional");
+
+            var Zona = document.getElementById("Zona").value;
+            var Usuario = document.getElementById("Usuario").value;
+            var Telefono = document.getElementById("Telefono").value;
+            var Cliente = document.getElementById("Cliente").value;
+            var Fecha = document.getElementById("Fecha").value;
+
+            recibirDatos(Usuario, Zona, Telefono, Cliente, Fecha, filtroTipo);
+        }
+
+        function recibirDatos(Usuario, Zona, Telefono, Cliente, Fecha, filtroTipo) {
+            console.log("Recibiendo datos");
+            axios.get('http://localhost:3000/Historial', {
+                params: {
+                    Zona: Zona,
+                    Usuario: Usuario,
+                    Telefono: Telefono,
+                    Fecha: Fecha,
+                    Cliente: Cliente,
+                    filtroTipo: filtroTipo,
+                }
+            })
+            .then(function(res) {
+                console.log("Respuesta", res);
+                if (res.status === 200) {
+                    localStorage.setItem("auth", JSON.stringify({Usuario,
+                         Zona, 
+                         Telefono,
+                          Cliente, 
+                          Fecha}));
+                    mensaje.innerText = 'Datos recibidos: ' + JSON.stringify(res.data);
+                    // Redirigir a la página deseada
+                }
+            })
+            .catch(function(err) {
+                console.log(err);
+                alert('Hubo un error al recibir los datos.');
+            });
+        }*/
+    </script>
 </body>
 </html>
-
-    

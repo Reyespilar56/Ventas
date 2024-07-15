@@ -71,6 +71,7 @@ body {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    width: 100%;
   }
   
   /* Ajustes responsivos */
@@ -90,7 +91,5 @@ body {
       width: 100%; /* El formulario ocupa todo el ancho en dispositivos móviles */
     }
   }
-  
-
 
 

@@ -10,36 +10,84 @@
     <link rel="stylesheet" href="calculadora.css">
 </head>
 <body>
-    <div class="container">
-    </br>
-</br>
-</br>
-</br>    </br>    </br>
-        <header class="container text-center">
+    <div class="container my-5">
+        <header class="text-center mb-4">
             <img src="https://digy.com.mx/wp-content/uploads/2021/02/logo1sinfondo_Mesa-de-trabajo-1-1024x264.png" alt="Logo de la empresa" class="img-fluid">
         </header>
-        <div class="calculator">
-    
-            <h2 class="text-center mt-3 mb-4">Calculadora de Megas </h2>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Número de dispositivos</span>
+        <div class="calculator p-4 border rounded">
+            <h2 class="text-center mb-4">Calculadora de Megas</h2>
+            
+            <!-- Número de dispositivos -->
+            <div class="mb-3">
+                <label class="form-label">Número de dispositivos:</label><br>
+                <div class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="devices" id="devices1" value="1-3" autocomplete="off"> 1 a 3
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="devices" id="devices2" value="4-6" autocomplete="off"> 4 a 6
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="devices" id="devices3" value="7+" autocomplete="off"> 7 o más
+                    </label>
                 </div>
-                <input type="number" id="devices" class="form-control" min="1" value="1">
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Horas de juego multijugador/día</span>
+
+            <!-- Horas de juego multijugador/día -->
+            <div class="mb-3">
+                <label class="form-label">Consola de videojuegos:</label><br>
+                <div class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                    
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours1" value="1" autocomplete="off"> 1
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours2" value="2" autocomplete="off"> 2
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours3" value="3" autocomplete="off"> 3
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours4" value="4" autocomplete="off"> 4
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours5" value="5" autocomplete="off"> 5
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="multiplayer-hours" id="multiplayer-hours0" value="mas" autocomplete="off"> más
+                    </label>
                 </div>
-                <input type="number" id="multiplayer-hours" class="form-control" min="0" value="0">
             </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Descargas y actualizacionesa dispositivo /mes</span>
+
+            <!-- Descargas y actualizaciones/dispositivo/mes -->
+            <div class="mb-3">
+                <label class="form-label">Descargas y actualizaciones/dispositivo/mes:</label><br>
+                <div class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count0" value="0" autocomplete="off"> 0
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count1" value="1" autocomplete="off"> 1
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count2" value="2" autocomplete="off"> 2
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count3" value="3" autocomplete="off"> 3
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count4" value="4" autocomplete="off"> 4
+                    </label>
+                    <label class="btn btn-secondary m-1 flex-fill">
+                        <input type="radio" name="downloads-count" id="downloads-count5" value="5" autocomplete="off"> 5
+                    </label>
                 </div>
-                <input type="number" id="downloads-count" class="form-control" min="0" value="0">
             </div>
+
+            <!-- Botón de calcular -->
             <button onclick="calculateDataUsage()" class="btn btn-primary btn-block">Calcular Consumo</button>
+
+            <!-- Resultado -->
             <div id="result" class="result-section mt-4">
                 <h3 class="text-center">Consumo estimado de datos:</h3>
                 <p id="data-usage" class="text-center">-</p>
@@ -49,6 +97,8 @@
     </div>
 
     <!-- Incluir Bootstrap JS y script personalizado -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="calculadora.js"></script>
 </body>

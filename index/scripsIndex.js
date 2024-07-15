@@ -12,6 +12,7 @@ const inputDomicilio = document.getElementById('domicilio');
 const inputFecha = document.getElementById('Fecha');
 const inputHora = document.getElementById('Hora');
 const inputMinuto = document.getElementById('Minuto');
+const inputphoto_data = document.getElementById("photo_data");
 
 
 // Variables
@@ -39,6 +40,7 @@ formularioVenta.addEventListener('submit', async (event) => {
     Fecha:inputFecha.value,
     Hora:inputHora.value,
     Minuto:inputMinuto.value,
+    photo_data:inputphoto_data,
   };
 // Llamar a una función para enviar los datos a través de Axios (ejemplo)
 

@@ -59,4 +59,46 @@ body {
     .input-group-text {
         min-width: auto;
     }
+}body {
+    background-color: #f8f9fa;
+}
+
+header img {
+    max-width: 200px;
+}
+
+.calculator {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-group-toggle .btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.btn-group-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-group-toggle .btn {
+    flex: 1;
+    min-width: 80px;
+    background-color: #007bff; /* Color primario de Bootstrap */
+    border-color: #007bff; /* Color del borde */
+}
+
+.btn-group-toggle .btn input[type="radio"]:checked + label.btn {
+    background-color: #28a745; /* Color cuando está seleccionado */
+    border-color: #28a745;
+}
+
+.btn-group-toggle .btn:hover {
+    background-color: #0056b3; /* Color al pasar el cursor */
+    border-color: #0056b3;
 }

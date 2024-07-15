@@ -1,4 +1,6 @@
 var boton = document.getElementById('json_post');
+var logoutButton= document.getElementById('logoutButton');
+var foto= document.getElementById('foto');
 var mensaje = document.getElementById('mensaje');
 var inputNombre = document.getElementById('nombre');
 const inputEmail = document.getElementById('email');
@@ -12,12 +14,15 @@ const inputpaquete =document.getElementById("paquete");
 const inputHora =document.getElementById("Hora");
 const inputMinuto =document.getElementById("Minuto");
 const inputFecha =document.getElementById("Fecha");
+const inputphoto_data = document.getElementById("photo_data");
 
 boton.addEventListener('click', function() {
 
+
+
   // Generar un ID aleatorio
   function generateRandomID() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const chars = '0123456789';
     let randomID = '';
 
     for (let i = 0; i < 10; i++) {
@@ -29,8 +34,11 @@ boton.addEventListener('click', function() {
 
   // Generar y mostrar el ID generado
   var randomid = generateRandomID();
-  inputID.value = randomid; // Actualizar el valor del campo de ID en el formulario
+  inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
 
+
+
+  
   axios.post('http://localhost:3000/instalacion', {
     data: {
       "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
@@ -46,7 +54,10 @@ boton.addEventListener('click', function() {
       "Fecha":inputFecha.value,
       "Hora":inputHora.value,
       "Minuto":inputMinuto.value,
+      "photo_data":inputphoto_data.value,
     }
+
+    
   })
   .then(function(response) {
     console.log("respuesta", response);
@@ -61,7 +72,7 @@ boton.addEventListener('click', function() {
     } else {
       // Handle error response
       console.error('Error:', response.status, response.data);
-      mensaje.innerHTML = 'Error al enviar la venta.';
+      mensaje.innerHTML = 'Error al enviar la venta.';g
     }
   })
   .catch(function(error) {
@@ -70,3 +81,32 @@ boton.addEventListener('click', function() {
     mensaje.innerHTML = 'Error de red o de conexión.';
   });
 });
+    // Verificar el estado de autenticación al cargar la página protegida
+    window.onload = function() {
+      const auth = localStorage.getItem('auth');
+      if (!auth) {
+        // Redirigir a la página de inicio de sesión si no está autenticado
+        window.location.href = 'http://127.0.0.1:5500/login/Login.html'; // Cambia a la URL de tu página de login
+      }
+      
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const logoutButton = document.getElementById('logoutButton');
+      logoutButton.addEventListener('click', function() {
+        localStorage.removeItem('auth'); // Eliminar estado de autenticación
+        window.location.href = ' http://127.0.0.1:5500/index/index.html'; // Redirigir a la página de login
+      });
+    });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const foto = document.getElementById('foto');
+    foto.addEventListener('click', function() {
+      window.location.href = ' http://127.0.0.1:5500/Calculadora/Calculadora.html'; // Redirigir a calculadora
+    })
+    });
+
+  
+
+

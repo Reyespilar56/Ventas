@@ -2,17 +2,17 @@
 
 function validarFormulario() {
   // Obtener los valores de los campos de entrada
-  const nombreUsuario = document.getElementById('usuario').value;
-  const contrasena = document.getElementById('contrasena').value;
+  var nombreUsuario = document.getElementById('usuario').value;
+  var contrasena = document.getElementById('contrasena').value;
 
   // Validación básica del formulario (se puede ampliar)
   if (nombreUsuario === '' || contrasena === '') {
-    alert('Por favor, ingrese su nombre de usuario y contraseña.');
+  //  alert('Por favor, ingrese su nombre de usuario y contraseña.');
     return false;
   }
 
   // Simular un inicio de sesión exitoso (reemplazar con la lógica de autenticación real)
-  alert('¡Inicio de sesión exitoso!');
+  //alert('¡Inicio de sesión exitoso!');
   return true;
 }
 
