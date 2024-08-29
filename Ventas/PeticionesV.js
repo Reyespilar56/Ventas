@@ -196,7 +196,7 @@ function procesarFormulario(filtroTipo) {
 
 function recibirDatos(Valor, filtroTipo) {
     console.log("Recibiendo datos");
-    axios.get('http://localhost:3000/Historial', {
+    axios.get('https://ventas-cambaceo-back.vercel.app/Historial', {
         params: {
             valor: Valor,
             filtroTipo: filtroTipo // Enviar filtroTipo al servidor
