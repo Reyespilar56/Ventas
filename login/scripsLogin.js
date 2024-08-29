@@ -26,3 +26,4 @@ formularioInicioSesion.addEventListener('submit', (event) => {
     alert('¡Inicio de sesión exitoso!');
   }
 });
+
