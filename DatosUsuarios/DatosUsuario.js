@@ -62,7 +62,7 @@ function validarFormulario(Nombre, correoElectronico, Telefono, TelefonoMovil, D
 function enviarSolicitud(usuarioId, Nombre, correoElectronico, Telefono, TelefonoMovil, Direccion, usuario, contrasena) {
   console.log("solicitud enviada"); // Muestra en la consola que la solicitud fue enviada
   // Realiza una petición POST al servidor con los datos del usuario
-  axios.post('http://localhost:3000/usuario', {
+  axios.post('https://ventas-cambaceo-back.vercel.app/usuario', {
     data: {
       "id": usuarioId,
       "Nombre": Nombre,
