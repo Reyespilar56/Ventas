@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var bton = document.getElementById('bton');
   var mensaje = document.getElementById('mensaje');
 
+  
   bton.addEventListener('click', function() {
     
     var Nombre = document.getElementById('Nombre').value;
