@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const link2 = document.getElementById("link2");
   const link3 = document.getElementById("link3");
 
-  
-
   // Generar un ID aleatorio
   function generateRandomID() {
     const chars = '0123456789';
@@ -39,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
 
-      axios.post('http://localhost:3000/instalacion', {
+      axios.post(' https://ventas-cambaceo-back.vercel.app/instalacion', {
         data: {
           "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
           "Nombre": inputNombre.value,
@@ -89,19 +87,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  if (logoutButton) {
+  /*if (logoutButton) {
     logoutButton.addEventListener('click', function () {
       localStorage.removeItem('auth'); // Eliminar estado de autenticación
       window.location.href = 'http://127.0.0.1:5500/index/index.html'; // Redirigir a la página de login
     });
+    
   }
-
-  if (foto) {
+*/
+  /*if (foto) {
     foto.addEventListener('click', function () {
       window.location.href = 'http://127.0.0.1:5500/Calculadora/Calculadora.html'; // Redirigir a calculadora
     });
   }
+    */
 
+  
   const botonEncontrar = document.getElementById('encontrar');
   console.log("Botón encontrado:", botonEncontrar); // Verifica que el botón se encuentra
   if (botonEncontrar) { // Asegúrate de que el botón existe
@@ -185,10 +186,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const frameIne = document.getElementById("link1");
         const newSrc = `https://drive.google.com/file/d/${respuesta.id}/preview`; // Definir newSrc aquí
         frameIne.setAttribute("src", newSrc);
-        const urlDisplay = document.getElementById('urlDisplay'); // Asegúrate de tener un elemento con este ID en tu HTML
-      //  if (urlDisplay) {
-           // urlDisplay.textContent = newSrc; // Mostrar la URL en texto
-      //  }
+      const urlDisplay = document.getElementById('urlDisplay'); // Asegúrate de tener un elemento con este ID en tu HTML
+      // if (urlDisplay) {
+         //   urlDisplay.textContent = newSrc; // Mostrar la URL en texto
+       //}
         
       }
     }, 3000); // Esperar 3 segundos para permitir que la cámara se enfoque
@@ -206,6 +207,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const framereverso = document.getElementById("link2");
         framereverso.setAttribute("src", `https://drive.google.com/file/d/${respuesta1.id}/preview`);
       }
+
+     
     }, 3000); // Esperar 3 segundos para permitir que la cámara se enfoque
   });
 
