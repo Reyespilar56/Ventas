@@ -31,7 +31,7 @@ async function recibirDatos(usuario, contrasena) {
 
     try {
         // Realiza la solicitud GET al servidor
-        const respuesta = await axios.get('http://localhost:3000/Login', {
+        const respuesta = await axios.get('https://ventas-cambaceo-back.vercel.app/Login', {
             params: {
                 usuario: usuario,
                 contrasena: contrasena
