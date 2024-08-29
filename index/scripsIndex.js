@@ -66,3 +66,4 @@ coordinatesInput.addEventListener('input', async () => {
 getDataFromAPI();
 
 
+
