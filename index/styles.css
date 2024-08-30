@@ -133,5 +133,38 @@ body {
     #tabla th:nth-child(3), #tabla td:nth-child(3) {
         width: 33.3%;
     }
+/* Estilos básicos para el botón */
+#logoutButton {
+  display: inline-block;
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
+  max-width: 500cm; /* Ancho máximo del botón */
+  padding: 20px 20px; /* Espaciado interno */
+  text-align: center; /* Centra el texto dentro del botón */
+  font-size: 1.2em; /* Tamaño de fuente grande */
+  color: #fff; /* Color del texto */
+  background-color: #dc3545; /* Color de fondo rojo (Bootstrap's .btn-danger) */
+  border: none; /* Elimina el borde predeterminado */
+  border-radius: 4px; /* Bordes redondeados */
+  text-decoration: none; /* Elimina el subrayado */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
 
+/* Estilo para el botón en estado de hover */
+#logoutButton:hover {
+  background-color: #c82333; /* Color de fondo rojo más oscuro al pasar el mouse */
+}
 
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  #logoutButton {
+      font-size: 1em; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+      padding: 10px 15px; /* Menos espaciado interno en pantallas pequeñas */
+  }
+}
+
+@media (min-width: 769px) {
+  #logoutButton {
+      font-size: 1.2em; /* Tamaño de fuente normal en pantallas grandes */
+      padding: 12px 20px; /* Espaciado interno normal en pantallas grandes */
+  }
+}
