@@ -53,5 +53,23 @@ header img {
   .form-control {
     font-size: 14px; /* Ajusta el tamaño de la fuente en pantallas pequeñas */
   }
+}/* Estilo general para ambos botones */
+.custom-button {
+  color: white; /* Color del texto */
+  font-size: 18px; /* Tamaño del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  text-decoration: none; /* Quitar subrayado en enlaces */
+  display: inline-block; /* Para que el enlace se comporte como botón */
+}
+
+/* Estilo específico para el botón "Registrarse" (Azul) */
+.btn-blue {
+  background-color: #007bff; /* Color de fondo (azul) */
+}
+
+/* Estilo específico para el botón "Iniciar Sesión" (Verde) */
+.btn-green {
+  background-color: #28a745; /* Color de fondo (verde) */
 }
 
