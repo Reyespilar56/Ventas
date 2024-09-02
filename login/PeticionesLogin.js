@@ -49,6 +49,6 @@ async function recibirDatos(usuario, contrasena) {
         }
     } catch (error) {
         console.error('Error al hacer la solicitud:', error);
-        alert('Contraseña o Usuario Incorrecto Verificar Usuario y Contaseña ');
+        alert('Contraseña o Usuario Incorrecto.');
     }
 }
