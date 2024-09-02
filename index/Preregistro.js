@@ -125,61 +125,37 @@ document.addEventListener('DOMContentLoaded', function () {
   const ineButton = document.getElementById('ine_button');
   const reversoButton = document.getElementById('reverso_button');
   const domicilioButton = document.getElementById('domicilio_button');
+  document.getElementById('yourButtonId').addEventListener('click', () => {
+    document.getElementById('cameraInput').click();
+  });
 
-  // Función para abrir la cámara
-  function openCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(function (stream) {
-        video.srcObject = stream;
-        video.style.display = 'block'; // Mostrar el video
-        // video.play();
-      })
-      .catch(function (err) {
-        console.error('Error al acceder a la cámara: ', err);
-      });
-  }
+  document.getElementById('cameraInput').addEventListener('change', async function() {
+    if (this.files && this.files.length > 0) {
+      const file = this.files[0];
 
-  /// Función para iniciar la cámara
-async function startCamera() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: { exact: 'environment' } // 'environment' para la cámara trasera
-      }
-    });
-    video.srcObject = stream;
-    video.play();
-  } catch (err) {
-    console.error("Error al acceder a la cámara: ", err);
-  }
-}
+      // Leer la imagen como Data URL para poder manipularla o enviarla al servidor
+      const reader = new FileReader();
+      reader.onloadend = async function() {
+        const photoData = reader.result;
 
-// Función para capturar la foto
-function capturePhoto() {
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  video.style.display = 'none'; // Ocultar el video después de capturar
-  return canvas.toDataURL('image/jpeg'); // Devuelve la foto en formato Base64
-}
+        // Aquí puedes llamar a la función para subir la foto
+        await uploadPhoto(photoData, 'buttonType');
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-// Llamar a la función para iniciar la cámara cuando la página cargue
-startCamera();
-
-  // Función para convertir la foto capturada en un Buffer y luego enviarla al servidor
   async function uploadPhoto(PhotoData, buttonType) {
-    // Convierte la imagen Base64 a un Buffer
     const byteString = atob(PhotoData.split(',')[1]);
     const buffer = new Uint8Array(new ArrayBuffer(byteString.length));
     for (let i = 0; i < byteString.length; i++) {
       buffer[i] = byteString.charCodeAt(i);
     }
 
-    // Crear un objeto Blob a partir del buffer
     const blob = new Blob([buffer], { type: 'image/jpeg' });
 
-    // Crear un FormData para enviar el archivo
     const formData = new FormData();
     formData.append('file', blob, `${buttonType}.jpeg`);
-    console.log('Sending request to the server...');
 
     const response = await axios.post('https://installations-calendar-back.vercel.app/drive/upload', formData, {
       headers: {
@@ -190,7 +166,6 @@ startCamera();
     console.log('Response received:', response);
     return response.data;
   }
-
   // Manejar clic en el botón Ine...
   ineButton.addEventListener('click', function () {
     openCamera(); // Abrir la cámara
