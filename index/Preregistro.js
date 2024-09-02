@@ -139,12 +139,30 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // Función para capturar la foto
-  function capturePhoto() {
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    video.style.display = 'none'; // Ocultar el video después de capturar
-    return canvas.toDataURL('image/jpeg'); // Devuelve la foto en formato Base64
+  /// Función para iniciar la cámara
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: { exact: 'environment' } // 'environment' para la cámara trasera
+      }
+    });
+    video.srcObject = stream;
+    video.play();
+  } catch (err) {
+    console.error("Error al acceder a la cámara: ", err);
   }
+}
+
+// Función para capturar la foto
+function capturePhoto() {
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  video.style.display = 'none'; // Ocultar el video después de capturar
+  return canvas.toDataURL('image/jpeg'); // Devuelve la foto en formato Base64
+}
+
+// Llamar a la función para iniciar la cámara cuando la página cargue
+startCamera();
 
   // Función para convertir la foto capturada en un Buffer y luego enviarla al servidor
   async function uploadPhoto(PhotoData, buttonType) {
