@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputHora = document.getElementById('Hora');
   const inputMinuto = document.getElementById('Minuto');
   const inputFecha = document.getElementById('Fecha');
-  const newSrc = document.getElementById("newSrc");
+  
   const link1 = document.getElementById("link1");
   const link2 = document.getElementById("link2");
   const link3 = document.getElementById("link3");
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
           "Fecha": inputFecha.value,
           "Hora": inputHora.value,
           "Minuto": inputMinuto.value,
-        "URL_INE" : link1.src,
-        "URL_REVERSO":link2.src,
-        "URL_DOMICILIO":link3.src,
+        "URL_INE" : link1,
+        "URL_REVERSO":link2,
+        "URL_DOMICILIO":link3,
 
         }
       })
@@ -113,111 +113,4 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     console.error("No se encontró el botón con el ID 'encontrar'");
   }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Obtener referencias a los elementos
-  const video = document.getElementById('video');
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-
-  // Botones de Ine, Reverso, y Domicilio
-  const ineButton = document.getElementById('ine_button');
-  const reversoButton = document.getElementById('reverso_button');
-  const domicilioButton = document.getElementById('domicilio_button');
-  document.getElementById('yourButtonId').addEventListener('click', () => {
-    document.getElementById('cameraInput').click();
-  });
-
-  document.getElementById('cameraInput').addEventListener('change', async function() {
-    if (this.files && this.files.length > 0) {
-      const file = this.files[0];
-
-      // Leer la imagen como Data URL para poder manipularla o enviarla al servidor
-      const reader = new FileReader();
-      reader.onloadend = async function() {
-        const photoData = reader.result;
-
-        // Aquí puedes llamar a la función para subir la foto
-        await uploadPhoto(photoData, 'buttonType');
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  async function uploadPhoto(PhotoData, buttonType) {
-    const byteString = atob(PhotoData.split(',')[1]);
-    const buffer = new Uint8Array(new ArrayBuffer(byteString.length));
-    for (let i = 0; i < byteString.length; i++) {
-      buffer[i] = byteString.charCodeAt(i);
-    }
-
-    const blob = new Blob([buffer], { type: 'image/jpeg' });
-
-    const formData = new FormData();
-    formData.append('file', blob, `${buttonType}.jpeg`);
-
-    const response = await axios.post('https://installations-calendar-back.vercel.app/drive/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    });
-
-    console.log('Response received:', response);
-    return response.data;
-  }
-  // Manejar clic en el botón Ine...
-  ineButton.addEventListener('click', function () {
-    openCamera(); // Abrir la cámara
-    setTimeout(async () => {
-      var inputNombre = document.getElementById('nombre');
-      const PhotoData = capturePhoto(); // Capturar la foto
-      const respuesta = await uploadPhoto(PhotoData, 'INE' + inputNombre.value); // Enviar la foto al servidor
-      console.log("RESPUESTA INE", respuesta);
-
-      if (respuesta.status == "ok") {
-        const frameIne = document.getElementById("link1");
-        const newSrc = `https://drive.google.com/file/d/${respuesta.id}/preview`; // Definir newSrc aquí
-        frameIne.setAttribute("src", newSrc);
-      const urlDisplay = document.getElementById('urlDisplay'); // Asegúrate de tener un elemento con este ID en tu HTML
-      // if (urlDisplay) {
-         //   urlDisplay.textContent = newSrc; // Mostrar la URL en texto
-       //}
-        
-      }
-    }, 3000); // Esperar 3 segundos para permitir que la cámara se enfoque
-  });
-
-  // Manejar clic en el botón Reverso
-  reversoButton.addEventListener('click', function () {
-    openCamera(); // Abrir la cámara
-    setTimeout(async () => {
-      var inputNombre = document.getElementById('nombre');
-      const PhotoData = capturePhoto(); // Capturar la foto
-      const respuesta1 = await uploadPhoto(PhotoData, 'REVERSO INE' + inputNombre.value); // Enviar la foto al servidor
-      console.log("RESPUESTA REVERSO INE", respuesta1);
-      if (respuesta1.status == "ok") {
-        const framereverso = document.getElementById("link2");
-        framereverso.setAttribute("src", `https://drive.google.com/file/d/${respuesta1.id}/preview`);
-      }
-
-     
-    }, 3000); // Esperar 3 segundos para permitir que la cámara se enfoque
-  });
-
-  // Manejar clic en el botón Domicilio
-  domicilioButton.addEventListener('click', function () {
-    openCamera(); // Abrir la cámara
-    setTimeout(async () => {
-      var inputNombre = document.getElementById('nombre');
-      const PhotoData = capturePhoto(); // Capturar la foto
-      const respuesta2 = await uploadPhoto(PhotoData, 'DOMICILIO' + inputNombre.value); // Enviar la foto al servidor
-      console.log("RESPUESTA DOMICILIO", respuesta2);
-
-      if (respuesta2.status == "ok") {
-        const framedomicilio = document.getElementById("link3");
-        framedomicilio.setAttribute("src", `https://drive.google.com/file/d/${respuesta2.id}/preview`);
-      }
-    }, 3000); // Esperar 3 segundos para permitir que la cámara se enfoque
-  });
 });
