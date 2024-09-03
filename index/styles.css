@@ -124,10 +124,11 @@ body {
     /* Definir ancho específico para cada columna */
     #tabla th:nth-child(1), #tabla td:nth-child(1) {
         width: 33.3%;
+        
     }
 
     #tabla th:nth-child(2), #tabla td:nth-child(2) {
-        width:33.3;
+        width:33.3%;
     }
 
     #tabla th:nth-child(3), #tabla td:nth-child(3) {
@@ -168,3 +169,6 @@ body {
       padding: 12px 20px; /* Espaciado interno normal en pantallas grandes */
   }
 }
+
+/*--------------------------------------------*/
+  /* Estilos para cada columna usando IDs */
