@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputMinuto = document.getElementById('Minuto');
   const inputFecha = document.getElementById('Fecha');
   
-  const link1 = document.getElementById("link1");
-  const link2 = document.getElementById("link2");
-  const link3 = document.getElementById("link3");
+  const link1 = document.getElementById("urlDisplayINE");
+  const link2 = document.getElementById("urlDisplayREVERSO");
+  const link3 = document.getElementById("urlDisplayDOMICILIO");
 
   // Generar un ID aleatorio
   function generateRandomID() {
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
           "Fecha": inputFecha.value,
           "Hora": inputHora.value,
           "Minuto": inputMinuto.value,
-        "URL_INE" : link1,
-        "URL_REVERSO":link2,
-        "URL_DOMICILIO":link3,
+          "URL_INE" : link1.href,
+          "URL_REVERSO":link2.href,
+          "URL_DOMICILIO":link3.href,
 
         }
       })
