@@ -85,8 +85,10 @@
             </div>
 
             <!-- Botón de calcular -->
-            <button onclick="calculateDataUsage()" class="btn btn-primary btn-block">Calcular Consumo</button>
-
+            <!--<button onclick="calculateDataUsage()" class="btn btn-primary btn-block">Calcular Consumo</button>-->
+<form onsubmit="calculateDataUsage(); return false;">
+  <button type="submit" class="btn btn-primary btn-block">Calcular Consumo</button>
+</form>
             <!-- Resultado -->
             <div id="result" class="result-section mt-4">
                 <h3 class="text-center">Consumo estimado de datos:</h3>
