@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputHora = document.getElementById('Hora');
   const inputMinuto = document.getElementById('Minuto');
   const inputFecha = document.getElementById('Fecha');
-  
+  const notas=document.getElementById("notas")
   const link1 = document.getElementById("urlDisplayINE");
   const link2 = document.getElementById("urlDisplayREVERSO");
   const link3 = document.getElementById("urlDisplayDOMICILIO");
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
 
-      axios.post(' https://ventas-cambaceo-back.vercel.app/instalacion', {
+      axios.post('http://localhost:3000/instalacion', {
         data: {
           "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
           "Nombre": inputNombre.value,
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
           "URL_INE" : link1.href,
           "URL_REVERSO":link2.href,
           "URL_DOMICILIO":link3.href,
+          "notas":notas
 
         }
       })
