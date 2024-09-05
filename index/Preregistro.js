@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
 
-      axios.post('http://localhost:3000/instalacion', {
+      axios.post('https://ventas-cambaceo-back.vercel.app/instalacion', {
         data: {
           "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
           "Nombre": inputNombre.value,
