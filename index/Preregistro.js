@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputHora = document.getElementById('Hora');
   const inputMinuto = document.getElementById('Minuto');
   const inputFecha = document.getElementById('Fecha');
-  const notas=document.getElementById("notas")
+  const notas=document.getElementById("notas");
   const link1 = document.getElementById("urlDisplayINE");
   const link2 = document.getElementById("urlDisplayREVERSO");
   const link3 = document.getElementById("urlDisplayDOMICILIO");
