@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputHora = document.getElementById('Hora');
   const inputMinuto = document.getElementById('Minuto');
   const inputFecha = document.getElementById('Fecha');
-  const inputnotas=document.getElementById("notas");
+  const notas=document.getElementById("notas");
   const link1 = document.getElementById("urlDisplayINE");
   const link2 = document.getElementById("urlDisplayREVERSO");
   const link3 = document.getElementById("urlDisplayDOMICILIO");
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
           "URL_INE" : link1.href,
           "URL_REVERSO":link2.href,
           "URL_DOMICILIO":link3.href,
-          "notas":inputnotas
+          "notas":notas.value
 
         }
       })
