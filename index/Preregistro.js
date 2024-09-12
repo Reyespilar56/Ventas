@@ -48,7 +48,7 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
      
-      axios.post(' http://localhost:3000/instalacion', {
+      axios.post(' https://installations-calendar-back.vercel.app/drive/upload', {
         data: {
           "Cobro":`${anticipoAmountInput.value}`,
           "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
