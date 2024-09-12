@@ -23,38 +23,65 @@
     <form id="formulario-venta">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required>
+        <input type="text" class="form-control" id="nombre" name="nombre"  placeholder="Nombre Del Cliente"required>
       </div>
 
       <div class="mb-3">
         <label for="Domicilio" class="form-label">Dirección:</label>
-        <input type="text" class="form-control" id="Domicilio" name="Domicilio" required>
+        <input type="text" class="form-control" id="Domicilio" name="Domicilio"  placeholder="Direccion"required>
       </div>
+      <div class="mb-3">
+        <label for="referencias" class="form-label">Referencias:</label>
+        <input type="text" class="form-control" id="referencias" name="referencias" placeholder="Color de la casa" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="NUmero Ext" class="form-label">Nombre de la calle :</label>
+        <input type="text" class="form-control" id="calle" name="calle" placeholder="Nombre de la calle" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="NUmero int" class="form-label">Numero Int:</label>
+        <input type="text" class="form-control" id="numeroInt" name="numero" placeholder="Número" required>
+    </div>
+    <div class="mb-3">
+      <label for="NUmero Ext" class="form-label">Numero Ext:</label>
+      <input type="text" class="form-control" id="numeroExt" name="numero" placeholder="Número" required>
+  </div>
 
+    <div class="mb-3">
+      <label for="cp" class="form-label">Codigo postal:</label>
+        <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal (C.P.)" required>
+    </div>
+    <label for="calles" class="form-label">Entre Calles:</label>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="entreCalles" name="entreCalles" placeholder="Entre qué calle y qué calle" required>
+    </div>
+    
       <div class="mb-3">
         <label for="email" class="form-label">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="email" name="email">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Correo E" >
       </div>
 
       <div class="mb-3">
         <label for="telefono" class="form-label">Teléfono Móvil:</label>
-        <input type="tel" class="form-control" id="telefono" name="telefono" required>
+        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono Móvil" required>
       </div>
 
       <div class="mb-3">
         <label for="telefonocasa" class="form-label">Teléfono Casa:</label>
-        <input type="tel" class="form-control" id="telefonocasa" name="telefonocasa">
+        <input type="tel" class="form-control" id="telefonocasa" name="telefonocasa"  placeholder="telefono Casa">
       </div>
 
-      <div class="mb-3">
+      <!--<div class="mb-3">
         <label for="referencias" class="form-label">Referencias:</label>
         <input type="text" class="form-control" id="referencias" name="referencias" required>
-      </div>
+      </div>-->
 
       <div class="mb-3 d-flex justify-content-between">
         <div class="w-50">
           <label for="coordenadas" class="form-label">Coordenadas:</label>
-          <input type="text" class="form-control" id="coordenadas" name="coordenadas" required>
+          <input type="text" class="form-control" id="coordenadas" name="coordenadas" placeholder="Coordenadas" required>
         </div>
         <div class="w-50 d-flex align-items-end">
           <button type="button" class="btn btn-success" id="encontrar">Encontrar Coordenada</button>
@@ -75,105 +102,82 @@
           <a target="_blank" href="/Calculadora/Calculadora.html" type="button" class="btn btn-primary" id="foto" style= "width: 100cm">Calculadora de megas</a>
         </div>
       </div>
-
-      <div class="mb-3">
-        <label for="Fecha" class="form-label">Fecha de Instalación:</label>
-        <input type="date" class="form-control" id="Fecha" name="Fecha" required>
-      </div>
-
-      <p>Horario De Disponibilidad Del Cliente</p>
-
+      <P>Fecha y Horario tentativo de instalación</P>
       <div class="mb-3 d-flex justify-content-between">
         <div class="w-50">
-          <label for="Hora" class="form-label">Horario:</label>
-          <select id="Hora" name="Hora" class="form-select" required>
-            <option value="">Seleccione una hora</option>
-            <option value="09:00">09:00</option>
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="12:00">12:00</option>
-            <option value="13:00">13:00</option>
-            <option value="14:00">14:00</option>
-            <option value="15:00">15:00</option>
-            <option value="16:00">16:00</option>
-            <option value="17:00">17:00</option>
-            <option value="18:00">18:00</option>
-            <option value="19:00">19:00</option>
-          </select>
+            <label for="FechaInicio" class="form-label">Fecha de :</label>
+            <input type="date" id="FechaInicio" name="FechaInicio" class="form-control" required>
         </div>
+    
         <div class="w-50">
-          <label for="Minuto" class="form-label">Minuto:</label>
-          <select id="Minuto" name="Minuto" class="form-select" required>
-            <option value="">Seleccione un minuto</option>
-            <!-- Opciones para minutos -->
-            <option value="00">00</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
-            <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
-            <option value="40">40</option>
-            <option value="41">41</option>
-            <option value="42">42</option>
-            <option value="43">43</option>
-            <option value="44">44</option>
-            <option value="45">45</option>
-            <option value="46">46</option>
-            <option value="47">47</option>
-            <option value="48">48</option>
-            <option value="49">49</option>
-            <option value="50">50</option>
-            <option value="51">51</option>
-            <option value="52">52</option>
-            <option value="53">53</option>
-            <option value="54">54</option>
-            <option value="55">55</option>
-            <option value="56">56</option>
-            <option value="57">57</option>
-            <option value="58">58</option>
-            <option value="59">59</option>
-          </select>
+            <label for="FechaFin" class="form-label">A:</label>
+            <input type="date" id="FechaFin" name="FechaFin" class="form-control" required>
         </div>
-      </div>
+    
+        <div class="w-50">
+            <label for="HoraInicio" class="form-label">En Horario de :</label>
+            <select id="HoraInicio" name="HoraInicio" class="form-select" required>
+                <option value="">Seleccione una hora</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+            </select>
+        </div>
+    
+        <div class="w-50">
+            <label for="HoraFin" class="form-label"> A:</label>
+            <select id="HoraFin" name="HoraFin" class="form-select" required>
+                <option value="">Seleccione una hora</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+            </select>
+        </div>
+    </div>
+    
 
-      <div class="mb-3">
+        <div class="mb-3 d-flex justify-content-between">
+      <div class="w-50">
+    <label for="Anticipo" class="form-label">Pagado:</label>
+    <select id="Anticipo" name="Anticipo" class="form-select" required>
+        <option value="">Anticipo</option>
+        <option value="SI">SI</option>
+        <option value="NO">NO</option>
+        <option value="PAGADO">PAGADO</option>
+    </select>
+</div>
+
+
+  
+<div id="anticipoAmount" class="w-50" style="display: none;">
+    <label for="anticipoAmountInput" class="form-label">Monto del Anticipo:</label>
+    <input type="number" id="anticipoAmountInput" name="anticipoAmountInput" class="form-control" step="">
+
+</div>
+
+</div>
+        <div class="mb-3">
         <label for="notas" class="form-label">Notas:</label>
         <input type="text" class="form-control" id="notas" name="notas" required>
       </div>
+
+      
 
       <div class="mb-3">
         <label for="ID" class="form-label">ID:</label>
@@ -226,9 +230,29 @@
         </div>
         
       </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Resumen de la Venta</h2>
+          <p>Por favor, verifica los siguientes datos antes de confirmar:</p>
+          <ul id="resumenDatos">
+            </ul>
+            <button type="button" id="confirmar"  class="btn btn-success">Confirmar</button>
+          <p> </p>
+             <button type="button" class="btn btn-danger"  >Cancelar</button>   </div>
+      </div>
 
+      
+      <style>
+        .button-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px; /* Espaciado entre botones */
+        }
+      </style>
       <button id="json_post" type="button" class="btn btn-primary btn-lg">Venta</button>
       <p id="mensaje"></p>
+      
 
       <a href="/login/Login.html" id="logoutButton" class="btn btn-danger btn-lg">Cerrar sesión</a>
 
@@ -243,5 +267,7 @@
   <script src="capturarFotos.js"></script>
 
 </body>
+
+
 
 </html>
