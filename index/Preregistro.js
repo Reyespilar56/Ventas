@@ -48,7 +48,7 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
      
-      axios.post(' https://installations-calendar-back.vercel.app/drive/upload', {
+      axios.post(' http://localhost:3000/instalacion', {
         data: {
           "Cobro":`${anticipoAmountInput.value}`,
           "token": "Smx2SVdkbUZIdjlCUlkxdFo1cUNMQT09",
@@ -127,31 +127,37 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
   }
     */
 
-  
   const botonEncontrar = document.getElementById('encontrar');
+  const Coordenadas = document.getElementById('coordenadas'); // Obtén el input de coordenadas
+  
   console.log("Botón encontrado:", botonEncontrar); // Verifica que el botón se encuentra
-  if (botonEncontrar) { // Asegúrate de que el botón existe
+  
+  if (botonEncontrar && Coordenadas) { // Asegúrate de que el botón y el input existen
     botonEncontrar.addEventListener('click', function () {
-      // URL de destino
-      window.open('https://www.google.com.mx/maps/preview', '_blank');
+      // Verificar si el navegador soporta geolocalización
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (posicion) {
+          const latitud = posicion.coords.latitude;
+          const longitud = posicion.coords.longitude;
+  
+          // Mostrar las coordenadas en el campo de entrada
+          inputCoordenadas.value = ` ${latitud},${longitud}`;
+        }, function (error) {
+          console.error("Error obteniendo la ubicación: ", error);
+          inputCoordenadas.value = "No se pudo obtener tu ubicación.";
+        });
+      } else {
+        console.error("La geolocalización no es soportada por este navegador.");
+        inputCoordenadas.value = "Tu navegador no soporta geolocalización.";
+      }
     });
   } else {
-    console.error("No se encontró el botón con el ID 'encontrar'");
+    console.error("No se encontró el botón con el ID 'encontrar' o el input con el ID 'coordenadas'");
   }
+  
 });
 
-const anticipoSelect = document.getElementById("Anticipo");
-const anticipoAmountDiv = document.getElementById("anticipoAmount");
-
-anticipoSelect.addEventListener("change", () => {
-    if (anticipoSelect.value === "SI") {
-        anticipoAmountDiv.style.display = "block";
-    } else {
-        anticipoAmountDiv.style.display = "none";
-    }
-});
-
-// FUNCION MODAL Y ENVIO DE DATOS
+// FUNCION MODAL Y ENVIO DE DATOS 
 // Obtener referencias a los elementos
 const botonEnviar = document.getElementById('json_post');
 const modal = document.getElementById('myModal');
