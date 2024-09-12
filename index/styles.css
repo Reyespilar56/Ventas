@@ -160,4 +160,25 @@ body {
   }
 }
 
-/*--------------------------------------------*/
+/*------------------MODAL --------------------------*/
+.modal {
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Se mantiene en su lugar */
+  z-index: 1; /* Sobre otras capas */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Permite desplazar si es necesario */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo negro transparente */
+  padding-top: 50px; /* Centra el contenido del modal */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal, puedes ajustarlo */
+  max-width: 400px; /* Ancho máximo para pantallas pequeñas */
+}
