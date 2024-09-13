@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputcp=document.getElementById("cp")
   const inputentreCalles=document.getElementById("entreCalles")
   
-  const button = document.getElementById('confirmar');
+  const confirmar = document.getElementById('confirmar');
  
 const anticipoAmountInput = document.getElementById("anticipoAmountInput");
 
@@ -47,7 +47,10 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
     confirmar.addEventListener('click', function () {
       var randomid = generateRandomID();
       inputID.value = "cambaceo-" + localStorage.getItem("auth") + "-" + randomid; // Actualizar el valor del campo de ID en el formulario
-     
+    
+    
+  
+    
       axios.post(' http://localhost:3000/instalacion', {
         data: {
           "Cobro":`${anticipoAmountInput.value}`,
@@ -56,13 +59,14 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           "email": inputEmail.value,
           "telefono": inputTelefono.value,
           "telefonocasa": inputTelefonocasa.value,
-           "domicilio": 
-          `Domicilio: ${inputDomicilio.value}
-          \nEntre Calles: ${inputentreCalles.value}
-          \nC.P.: ${inputcp.value}
-           \nNúmero Interior: ${inputnumeroInt.value}
-         \nNúmero Exterior: ${inputnumeroExt.value}
-          \nCalle: ${inputcalle.value}`,
+       "domicilio": 
+    `
+    \nEntre Calles: ${inputentreCalles.value}
+    \nC.P.: ${inputcp.value}
+    \nNúmero Interior: ${inputnumeroInt.value}
+    \nNúmero Exterior: ${inputnumeroExt.value}
+    \nCalle: ${inputcalle.value}`
+,
         "referencias": inputReferencias.value,
           "coordenadas": inputCoordenadas.value,
           "ID": inputID.value,
@@ -78,6 +82,7 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           
 
         }
+
         
       })
   
@@ -85,10 +90,11 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           console.log("respuesta", response);
           if (response.status === 200) {
             if (response.data && response.data.idcliente) {
-              mensaje.innerHTML = 'Venta enviada: ' + response.data.idcliente; // manda los datos con el ID generado
+              mensaje.innerHTML = 'Venta enviada: ' + response.data.idcliente;
             } else {
               mensaje.innerHTML = 'Venta enviada. ID de cliente generado.';
             }
+            window.location.reload(true);
           } else {
             console.error('Error:', response.status, response.data);
             mensaje.innerHTML = 'Error al enviar la venta.';
@@ -98,8 +104,9 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           console.error('Error:', error);
           mensaje.innerHTML = 'Error de red o de conexión.';
         });
+  
     });
-    
+   
   }
  
   // Verificar el estado de autenticación al cargar la página protegida
@@ -192,8 +199,6 @@ botonEnviar.addEventListener('click', () => {
      Coordenadas : {valor:document.getElementById('coordenadas').value,nombre: "Coordenadas"},
 
      Telefonocasa : {valor:document.getElementById('telefonocasa').value,nombre:"Telefono Casa"},
-
-     Domicilio : {valor:document.getElementById('Domicilio').value,nombre:"Domicilio"},
 
     paquete : {valor:document.getElementById('paquete').value,nombre:"paquete"},
 
