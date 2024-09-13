@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-  
 
 <head>
   <meta charset="UTF-8">
@@ -27,14 +26,7 @@
         <input type="text" class="form-control" id="nombre" name="nombre"  placeholder="Nombre Del Cliente"required>
       </div>
 
-      <div class="mb-3">
-        <label for="Domicilio" class="form-label">Dirección:</label>
-        <input type="text" class="form-control" id="Domicilio" name="Domicilio"  placeholder="Direccion"required>
-      </div>
-      <div class="mb-3">
-        <label for="referencias" class="form-label">Referencias:</label>
-        <input type="text" class="form-control" id="referencias" name="referencias" placeholder="Color de la casa" required>
-    </div>
+     
     
     <div class="mb-3">
       <label for="NUmero Ext" class="form-label">Nombre de la calle :</label>
@@ -58,10 +50,14 @@
     <div class="mb-3">
         <input type="text" class="form-control" id="entreCalles" name="entreCalles" placeholder="Entre qué calle y qué calle" required>
     </div>
+    <div class="mb-3">
+      <label for="referencias" class="form-label">Referencias:</label>
+      <input type="text" class="form-control" id="referencias" name="referencias" placeholder="Color de la casa" required>
+  </div>
     
       <div class="mb-3">
         <label for="email" class="form-label">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Correo E" >
+        <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electronico " >
       </div>
 
       <div class="mb-3">
@@ -114,7 +110,8 @@
             <label for="FechaFin" class="form-label">A:</label>
             <input type="date" id="FechaFin" name="FechaFin" class="form-control" required>
         </div>
-    
+      </div>
+      <div class="mb-3 d-flex justify-content-between">
         <div class="w-50">
             <label for="HoraInicio" class="form-label">En Horario de :</label>
             <select id="HoraInicio" name="HoraInicio" class="form-select" required>
@@ -132,6 +129,7 @@
                 <option value="19:00">19:00</option>
             </select>
         </div>
+        
     
         <div class="w-50">
             <label for="HoraFin" class="form-label"> A:</label>
