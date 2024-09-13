@@ -56,14 +56,13 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           "email": inputEmail.value,
           "telefono": inputTelefono.value,
           "telefonocasa": inputTelefonocasa.value,
-       "domicilio": 
-    `Domicilio: ${inputDomicilio.value}
-    \nEntre Calles: ${inputentreCalles.value}
-    \nC.P.: ${inputcp.value}
-    \nNúmero Interior: ${inputnumeroInt.value}
-    \nNúmero Exterior: ${inputnumeroExt.value}
-    \nCalle: ${inputcalle.value}`
-,
+           "domicilio": 
+          `Domicilio: ${inputDomicilio.value}
+          \nEntre Calles: ${inputentreCalles.value}
+          \nC.P.: ${inputcp.value}
+           \nNúmero Interior: ${inputnumeroInt.value}
+         \nNúmero Exterior: ${inputnumeroExt.value}
+          \nCalle: ${inputcalle.value}`,
         "referencias": inputReferencias.value,
           "coordenadas": inputCoordenadas.value,
           "ID": inputID.value,
@@ -86,7 +85,7 @@ const anticipoAmountInput = document.getElementById("anticipoAmountInput");
           console.log("respuesta", response);
           if (response.status === 200) {
             if (response.data && response.data.idcliente) {
-              mensaje.innerHTML = 'Venta enviada: ' + response.data.idcliente;
+              mensaje.innerHTML = 'Venta enviada: ' + response.data.idcliente; // manda los datos con el ID generado
             } else {
               mensaje.innerHTML = 'Venta enviada. ID de cliente generado.';
             }
@@ -232,3 +231,13 @@ cancelarBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
+const anticipoSelect = document.getElementById("Anticipo");
+const anticipoAmountDiv = document.getElementById("anticipoAmount");
+
+anticipoSelect.addEventListener("change", () => {
+    if (anticipoSelect.value === "SI") {
+        anticipoAmountDiv.style.display = "block";
+    } else {
+        anticipoAmountDiv.style.display = "none";
+    }
+});
